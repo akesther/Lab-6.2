@@ -19,6 +19,7 @@ export function fetchProductCatalog() {
         resolve([
           { id: 1, name: "Laptop", price: 1200 },
           { id: 2, name: "Headphones", price: 200 },
+        // ].filter(item => item.id == item.id) console.log(item);
         ]);
       } else {
         reject("Failed to fetch product catalog");
@@ -32,17 +33,17 @@ export function fetchProductReviews(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() > 0.4) {
-        const review = [
-          { productId: 1, rating: 5, content: "It was a nice Laptop!" },
+        const reviews = [
+          { productId: 1, rating: 5, content: "Great Laptop!" },
           { productId: 2, rating: 7, content: "Great Headphones!" },
-          { productId: 3, rating: 3, content: "Bad Laptop! Broke!" },
+          { productId: 3, rating: 3, content: "Great Laptop! !" },
         ].filter((item) => item.productId == id);
 
-        resolve(review);
+        resolve(reviews);
       } else {
         reject(`Failed to fetch reviews for product ID ${id}`);
         throw new NetworkError(
-          `Failed to fetch reviews for product ID ${productId}`,
+          `Failed to fetch reviews for product ID ${id}`,
         );
       }
     }, 1500);
